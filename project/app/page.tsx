@@ -1,10 +1,10 @@
-import { Hero } from "@/components/Hero";
-import { Abstract } from "@/components/Abstract";
-import { Highlights } from "@/components/Highlights";
-import { Results } from "@/components/Results";
-import { Method } from "@/components/Method";
-import { Team } from "@/components/Team";
-import { Citation } from "@/components/Citation";
+import { Hero } from "../components/Hero";
+import { Abstract } from "../components/Abstract";
+import { Highlights } from "../components/Highlights";
+import { Results } from "../components/Results";
+import { Method } from "../components/Method";
+import { Team } from "../components/Team";
+import { Citation } from "../components/Citation";
 import Image from "next/image";
 
 export default function Home() {
