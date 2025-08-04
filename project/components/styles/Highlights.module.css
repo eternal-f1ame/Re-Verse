@@ -1,0 +1,72 @@
+/* Highlights Component Styles */
+
+.highlights {
+  padding: 5rem 1rem;
+}
+
+.container {
+  max-width: 100rem; /* max-w-8xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Title Section */
+.title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--manga-black) 0%, var(--manga-brown) 50%, var(--manga-sepia) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 56rem; /* max-w-4xl */
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--manga-brown);
+}
+
+/* Highlights Grid */
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Featured Quote Section */
+.quoteSection {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.quote {
+  display: inline-block;
+  max-width: 80rem; /* max-w-5xl */
+  padding: 1.5rem 2rem;
+}
+
+.quoteText {
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--manga-black);
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .highlights {
+    padding: 5rem 3rem;
+  }
+  
+  .highlightsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}

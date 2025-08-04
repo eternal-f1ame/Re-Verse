@@ -1,0 +1,178 @@
+/* Method Component Styles */
+
+.method {
+  padding: 5rem 1rem;
+}
+
+.container {
+  max-width: 100rem; /* max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Title Section */
+.title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 48rem; /* max-w-3xl */
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--manga-brown);
+}
+
+/* Dataset Overview Grid */
+.datasetGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Evaluation Framework Section */
+.evaluationFramework {
+  padding: 2rem;
+  margin-bottom: 4rem;
+}
+
+.frameworkTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--manga-black);
+}
+
+.frameworkGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.frameworkItem {
+  text-align: center;
+}
+
+.frameworkDescription {
+  font-size: 0.875rem;
+  color: var(--manga-brown);
+}
+
+/* Method Steps Grid */
+.methodStepsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Step Number Badge */
+.stepBadge {
+  width: 3rem; /* w-12 */
+  height: 3rem; /* h-12 */
+  border-radius: 9999px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 700;
+  background-color: var(--manga-brown);
+  color: var(--manga-cream);
+}
+
+/* Technical Approach Section */
+.technicalApproach {
+  padding: 2rem;
+}
+
+.technicalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--manga-black);
+}
+
+.technicalGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.approachItem {
+  text-align: center;
+}
+
+.approachDescription {
+  font-size: 0.875rem;
+  color: var(--manga-brown);
+}
+
+/* Novel Annotation Protocol Section */
+.annotationProtocol {
+  padding: 2rem;
+  text-align: center;
+}
+
+.protocolTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--manga-black);
+}
+
+.protocolDescription {
+  font-size: 1.125rem;
+  max-width: 64rem; /* max-w-4xl */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.75;
+  color: var(--manga-brown);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .method {
+    padding: 5rem 2rem;
+  }
+  
+  .title {
+    font-size: 2.25rem; /* text-4xl */
+  }
+  
+  .datasetGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .frameworkGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .methodStepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .technicalGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .method {
+    padding: 5rem 3rem;
+  }
+  
+  .methodStepsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

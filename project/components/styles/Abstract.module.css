@@ -1,0 +1,130 @@
+/* Abstract Component Styles */
+
+.abstract {
+  padding: 5rem 1rem;
+}
+
+.container {
+  max-width: 100rem; /* max-w-8xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Title Section */
+.title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(135deg, var(--manga-black) 0%, var(--manga-brown) 50%, var(--manga-sepia) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.highlight {
+  font-weight: 700;
+}
+
+/* Main Panel removed - using global manga-panel */
+
+.prose {
+  max-width: none;
+}
+
+.paragraph {
+  font-size: 1.125rem;
+  line-height: 1.625;
+  margin-bottom: 1.5rem;
+  color: var(--manga-black);
+}
+
+.paragraphLast {
+  font-size: 1.125rem;
+  line-height: 1.625;
+  margin-bottom: 0;
+  color: var(--manga-black);
+}
+
+.speechBubbleText {
+  font-size: 1.125rem;
+  line-height: 1.625;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Key Contributions Grid */
+.contributionsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Contribution Card Content Styles */
+.contributionIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.contributionTitle {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--manga-black);
+  font-size: 1rem;
+}
+
+.contributionDescription {
+  font-size: 0.875rem;
+  color: var(--manga-brown);
+  line-height: 1.4;
+}
+
+/* Experimental Results Section */
+.experimentsSection {
+  margin-top: 5rem;
+}
+
+.experimentsTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--manga-black);
+}
+
+.experimentsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .highlights {
+    padding: 5rem 2rem;
+  }
+  
+  .title {
+    font-size: 2.25rem; /* text-4xl */
+  }
+  
+  .highlightsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .quote {
+    padding: 1.5rem 2rem;
+  }
+  
+  .experimentsTitle {
+    font-size: 1.875rem; /* text-3xl */
+  }
+  
+  .experimentsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
