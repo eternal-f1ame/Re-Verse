@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Custom cursor */
 * {
   cursor: url('/cursor.png'), auto !important;

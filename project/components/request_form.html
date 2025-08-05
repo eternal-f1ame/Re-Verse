@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Verse Dataset Access Request</title>
+    <link rel="icon" type="image/png" href="http://googleusercontent.com/file_content/9">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
+            background-image: url('http://googleusercontent.com/file_content/8');
+            background-repeat: repeat;
+            background-blend-mode: multiply;
+            background-size: 350px;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            background-color: white;
+            border: 4px solid #000;
+            box-shadow: 10px 10px 0px #000;
+            transform: rotate(-1deg);
+            transition: all 0.2s ease-in-out;
+        }
+        .form-container:hover {
+            transform: rotate(0deg);
+            box-shadow: 12px 12px 0px #000;
+        }
+        .form-header {
+            background-color: #000;
+            color: white;
+            padding: 1.5rem 2rem;
+            border-bottom: 4px solid #000;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .form-header img {
+            width: 60px;
+            height: 60px;
+            border: 3px solid white;
+            border-radius: 50%;
+        }
+        .form-header h1, .form-section-title, .gemini-btn {
+             font-family: 'Yomogi', cursive;
+        }
+        .form-body {
+            padding: 2rem;
+        }
+        .form-section {
+            background-color: white;
+            border: 3px solid #000;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            position: relative;
+        }
+        .form-section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background-color: white;
+            padding-right: 10px;
+        }
+        .input-group {
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+        .input-label {
+            display: block;
+            font-weight: 500;
+            color: #000;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 3px solid #000;
+            background-color: #fff;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        .form-input:focus {
+            outline: none;
+            box-shadow: 5px 5px 0px #ddd;
+            background-color: #f8f8ff;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        .form-checkbox {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid black;
+            margin-top: 0.2rem;
+            margin-right: 0.75rem;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .form-checkbox:checked {
+            background-color: #000;
+        }
+        .form-checkbox:checked::after {
+            content: '✔';
+            color: white;
+            position: absolute;
+            top: -5px;
+            left: 2px;
+            font-size: 1.2rem;
+        }
+        .checkbox-label {
+            color: #374151;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .submit-btn {
+            background-color: #000;
+            color: white;
+            font-family: 'Yomogi', cursive;
+            font-weight: bold;
+            padding: 0.8rem 1.5rem;
+            border: 3px solid #000;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100%;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+        .submit-btn:hover {
+            background-color: white;
+            color: black;
+            box-shadow: 5px 5px 0px #000;
+        }
+        .submit-btn:disabled {
+            background-color: #888;
+            cursor: not-allowed;
+        }
+        .gemini-btn {
+            background-color: #fff;
+            color: #000;
+            border: 3px solid #000;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .gemini-btn:hover {
+            background-color: #f0f0f0;
+            box-shadow: 3px 3px 0px #000;
+        }
+        .gemini-btn:disabled {
+            background-color: #ccc;
+            color: #888;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        .loader {
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .error-message {
+            color: #d90429;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            background-color: white;
+            border: 3px dashed #d90429;
+            padding: 0.5rem 1rem;
+        }
+        .success-message {
+            background-color: #fff;
+            color: #000;
+            border: 4px solid #000;
+            padding: 2rem;
+            text-align: center;
+        }
+        .manga-deco {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="form-container">
+        <div class="form-header">
+            <img src="http://googleusercontent.com/file_content/9" alt="Re:Verse Mascot">
+            <div>
+                <h1 class="text-3xl font-bold">Re:Verse Dataset</h1>
+                <p class="mt-1 opacity-90">Access Request Form</p>
+            </div>
+        </div>
+
+        <div class="form-body">
+            <div id="form-content">
+                <p class="mb-6 text-gray-600">Please fill out this form to request access to the Re:Verse Dataset. Access is granted for non-commercial research purposes only. Ensure all information is accurate.</p>
+
+                <form id="dataset-request-form" novalidate>
+                    <!-- Section for Requester Details -->
+                    <div class="form-section">
+                         <svg class="manga-deco" style="top: -25px; right: -25px; transform: rotate(15deg);" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 0L61.226 34.5492L97.5528 38.7742L71.2764 65.4508L77.6338 100L50 82L22.3662 100L28.7236 65.4508L2.44717 38.7742L38.774 34.5492L50 0Z" fill="black"/></svg>
+                        <h2 class="form-section-title">Requester Information</h2>
+                        <div class="input-group">
+                            <label for="fullName" class="input-label">Full Name <span class="text-red-500">*</span></label>
+                            <input type="text" id="fullName" name="fullName" class="form-input" required placeholder="e.g., John Doe">
+                        </div>
+                        <div class="input-group">
+                            <label for="email" class="input-label">Email Address <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="e.g., john.doe@example.com">
+                        </div>
+                        <div class="input-group">
+                            <label for="organization" class="input-label">Organisation / Institution <span class="text-red-500">*</span></label>
+                            <input type="text" id="organization" name="organization" class="form-input" required placeholder="e.g., University of Fictional Studies">
+                        </div>
+                         <div class="input-group mb-0">
+                            <div class="flex justify-between items-center mb-2">
+                                <label for="researchPurpose" class="input-label mb-0">Briefly describe your research purpose <span class="text-red-500">*</span></label>
+                            </div>
+                            <textarea id="researchPurpose" name="researchPurpose" rows="5" class="form-input" required placeholder="e.g., Analyzing character development arcs in modern isekai literature."></textarea>
+                            <div id="gemini-loader" class="text-right mt-2 hidden">
+                                <span class="text-sm text-gray-500">Generating...</span>
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section for Terms and Agreements -->
+                    <div class="form-section">
+                        <svg class="manga-deco" style="bottom: -30px; left: -35px; transform: rotate(-25deg);" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 49.8615L98 2M2 49.8615L50.2769 98L2 49.8615Z" stroke="black" stroke-width="4"/></svg>
+                        <h2 class="form-section-title">Terms and Conditions</h2>
+                        <p class="text-sm text-gray-500 mb-4">Please read and agree to the following terms to proceed.</p>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms-license" name="terms" class="form-checkbox" required>
+                            <label for="terms-license" class="checkbox-label">I agree to the licensing terms of the Re:Zero - Starting Life in Another World manga and associated media.</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms-accredit" name="terms" class="form-checkbox" required>
+                            <label for="terms-accredit" class="checkbox-label">I agree to credit <a href="https://yenpress.com/" target="_blank" class="text-indigo-600 hover:underline font-medium">Yen Press</a>, the official English publisher of the Re:Zero franchise, in any publications or presentations resulting from this research.</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms-usage" name="terms" class="form-checkbox" required>
+                            <label for="terms-usage" class="checkbox-label">I agree to use the Re:Verse Dataset for <strong>non-commercial and research purposes only</strong>.</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms-redistribute" name="terms" class="form-checkbox" required>
+                            <label for="terms-redistribute" class="checkbox-label">I agree <strong>not to redistribute, share, or make the Re:Verse Dataset publicly available</strong> in any form.</label>
+                        </div>
+                    </div>
+                    
+                    <div id="form-error" class="error-message mb-4 hidden"></div>
+
+                    <button type="submit" id="submit-button" class="submit-btn">Submit Request</button>
+                    <div id="submit-loader" class="text-center mt-4 hidden">
+                         <div class="loader" style="margin:auto;"></div>
+                         <p class="text-sm text-gray-600">Submitting to Google Sheet...</p>
+                    </div>
+                </form>
+            </div>
+            <div id="success-message" class="success-message hidden">
+                <h3 class="text-2xl font-bold mb-2" style="font-family: 'Yomogi', cursive;">Thank You!</h3>
+                <p>Your request for the Re:Verse Dataset has been submitted successfully. We will review your application and contact you via email within 5-7 business days.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('dataset-request-form');
+            const submitButton = document.getElementById('submit-button');
+            const submitLoader = document.getElementById('submit-loader');
+            const formError = document.getElementById('form-error');
+            const formContent = document.getElementById('form-content');
+            const successMessage = document.getElementById('success-message');
+            const researchPurposeTextarea = document.getElementById('researchPurpose');
+            const geminiSuggestBtn = document.getElementById('gemini-suggest-btn');
+            const geminiLoader = document.getElementById('gemini-loader');
+
+            // The URL you provided has been inserted here.
+            const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbx29cj3FzS2_HmZ6z0B5Ga3mNMXEjyG-IyXUAIj89RjBLl-tQUkzuAW3E8iZn58qWwo/exec';
+
+            // Enable/disable Gemini button based on textarea content
+            researchPurposeTextarea.addEventListener('input', () => {
+                geminiSuggestBtn.disabled = researchPurposeTextarea.value.trim() === '';
+            });
+
+            // Gemini API call
+            geminiSuggestBtn.addEventListener('click', async () => {
+                const userPrompt = researchPurposeTextarea.value.trim();
+                if (!userPrompt) return;
+
+                geminiSuggestBtn.disabled = true;
+                geminiLoader.classList.remove('hidden');
+                formError.classList.add('hidden');
+
+                try {
+                    const prompt = `Based on the following user research idea, please expand it into a formal, well-structured research abstract of about 150-200 words. The abstract should be suitable for a dataset access request. It must explicitly mention the intent to use the "Re:Verse Dataset" for the analysis. User's idea: "${userPrompt}"`;
+                    
+                    let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // API key will be automatically provided by the environment
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API request failed with status ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const generatedText = result.candidates[0].content.parts[0].text;
+                        researchPurposeTextarea.value = generatedText;
+                    } else {
+                        throw new Error('Unexpected response format from API.');
+                    }
+
+                } catch (error) {
+                    console.error('Gemini API Error:', error);
+                    formError.textContent = 'Could not generate suggestion. Please try again later.';
+                    formError.classList.remove('hidden');
+                } finally {
+                    geminiSuggestBtn.disabled = false;
+                    geminiLoader.classList.add('hidden');
+                }
+            });
+
+
+            // Form submission logic
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                formError.classList.add('hidden');
+                formError.textContent = '';
+
+                // --- Validation ---
+                const fullName = document.getElementById('fullName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const organization = document.getElementById('organization').value.trim();
+                const researchPurpose = researchPurposeTextarea.value.trim();
+                const checkboxes = document.querySelectorAll('input[name="terms"]:checked');
+
+                let errors = [];
+                if (!fullName) errors.push('Full Name is required.');
+                if (!email) errors.push('Email Address is required.');
+                if (!organization) errors.push('Organisation is required.');
+                if (!researchPurpose) errors.push('Research purpose is required.');
+                if (checkboxes.length < 4) errors.push('You must agree to all terms and conditions.');
+                if (googleScriptUrl === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
+                    errors.push('The form is not configured. Please contact the administrator.');
+                }
+
+                if (errors.length > 0) {
+                    formError.textContent = errors.join(' ');
+                    formError.classList.remove('hidden');
+                    return;
+                }
+
+                // --- Submission ---
+                submitButton.classList.add('hidden');
+                submitLoader.classList.remove('hidden');
+
+                const formData = {
+                    fullName: fullName,
+                    email: email,
+                    organization: organization,
+                    researchPurpose: researchPurpose
+                };
+
+                fetch(googleScriptUrl, {
+                    method: 'POST',
+                    body: JSON.stringify(formData),
+                    headers: {
+                        'Content-Type': 'text/plain;charset=utf-8', // Required for Apps Script
+                    },
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        formContent.classList.add('hidden');
+                        successMessage.classList.remove('hidden');
+                    } else {
+                        throw new Error(data.error || 'Unknown error occurred.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Submission Error:', error);
+                    formError.textContent = 'Could not submit the form. Please try again later.';
+                    formError.classList.remove('hidden');
+                    submitButton.classList.remove('hidden');
+                    submitLoader.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

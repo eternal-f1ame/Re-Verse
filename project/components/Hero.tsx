@@ -4,7 +4,11 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./styles/Hero.module.css";
 
-export function Hero() {
+interface HeroProps {
+  onRequestDataset: () => void;
+}
+
+export function Hero({ onRequestDataset }: HeroProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -115,13 +119,13 @@ export function Hero() {
           >
             📄 Read Paper
           </a>
-          <a
-            href="#dataset"
+          <button
+            onClick={onRequestDataset}
             className="manga-panel"
             style={{ padding: '0.75rem 1.5rem', fontSize: '0.875rem', fontWeight: '700', color: 'var(--manga-black)', textDecoration: 'none', transition: 'transform 300ms' }}
           >
             🌠 Request Dataset
-          </a>
+          </button>
         </div>
       </div>
     </section>

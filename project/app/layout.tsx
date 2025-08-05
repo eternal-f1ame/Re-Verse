@@ -13,6 +13,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Add Yomogi font for manga styling
+import { Yomogi } from "next/font/google";
+
+const yomogi = Yomogi({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-yomogi",
+});
+
 export const metadata: Metadata = {
   title: "Re:Verse - Can Your VLM Read a Manga?",
   description: "Evaluating Vision Language Models' Understanding of Sequential Visual Storytelling in Manga. ICCV 2025 Oral Presentation and Best Paper Award Nominee.",
@@ -42,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${yomogi.variable} antialiased`}
       >
         <MouseTracker />
         {children}
