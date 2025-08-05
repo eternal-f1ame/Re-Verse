@@ -1,6 +1,6 @@
-# [ICCV-W 25] Re:Verse - Can Your VLM Read a Manga?
+# Re:Verse - Can Your VLM Read a Manga?
 
-📄 **1st AI Story Workshop (Oral)**
+📄 **1st AI Story Workshop ICCV (Oral)**
 
 ## Overview
 
