@@ -8,7 +8,7 @@ export function Citation() {
   const bibtex = `@inproceedings{baranwal2025reverse,
     title={Re:Verse - Can Your VLM Read a Manga?},
     author={Baranwal, Aaditya and Kataria, Madhav and Agrawal, Naitik and Rawat, Yogesh Singh and Vyas, Shruti},
-    booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision Workshops (ICCV-W)},
     pages={--},
     year={2025},
     organization={IEEE}

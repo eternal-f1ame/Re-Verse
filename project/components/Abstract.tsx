@@ -41,10 +41,9 @@ export function Abstract() {
         </div>
         {/* Experimental Results Section */}
         <div className={styles.experimentsSection}>
-          <h3 className={styles.title}>
+          <h4 className={styles.title}>
             Experiments and Curation
-          </h3>
-          
+          </h4>
           <div className={styles.experimentsGrid}>
             <ImagePopup
               trigger={

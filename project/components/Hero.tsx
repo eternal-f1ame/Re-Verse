@@ -54,15 +54,19 @@ export function Hero() {
           <div className={styles.badgesList}>
             <div className="manga-speech-bubble">
               <span className={styles.badgeEmoji}>🏆</span>
-              ICCV 2025 - Oral Presentation
-            </div>
-            <div className="manga-speech-bubble">
-              <span className={styles.badgeEmoji}>🌟</span>
-              Best Paper Award Nominee
+              <a href="https://iccv.thecvf.com/Conferences/2025" target="_blank" rel="noopener noreferrer">
+                ICCV 2025 - Oral Presentation
+              </a>
             </div>
             <div className="manga-speech-bubble">
               <span className={styles.badgeEmoji}>✒️</span>
-              1st AI Story Workshop
+              <a href="https://aistory2025.github.io/" target="_blank" rel="noopener noreferrer">
+                1st AI Story Workshop
+              </a>
+            </div>
+            <div className="manga-speech-bubble">
+              <span className={styles.badgeEmoji}>🌟</span>
+              Best Paper Recommendation
             </div>
           </div>
         </div>
@@ -75,7 +79,7 @@ export function Hero() {
           
           <div className={styles.imageContainer}>
             <Image
-              src="/teaser.png"
+              src="/teaser.svg"
               alt="Re:Verse - VLM Manga Reading Evaluation Framework"
               width={800}
               height={400}
