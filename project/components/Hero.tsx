@@ -57,17 +57,17 @@ export function Hero({ onRequestDataset }: HeroProps) {
         <div className={styles.badgesContainer}>
           <div className={styles.badgesList}>
             <div className="manga-speech-bubble">
-              <span className={styles.badgeEmoji}>🏆</span>
+              <span className={styles.badgeEmoji}>🌟</span>
               <a href="https://iccv.thecvf.com/Conferences/2025" target="_blank" rel="noopener noreferrer">
                 Oral Presentation
               </a>
             </div>
             <div className="manga-speech-bubble">
-              <span className={styles.badgeEmoji}>✒️</span>
+              <span className={styles.badgeEmoji}>🏆</span>
                 Best Paper Recommendation
             </div>
             <div className="manga-speech-bubble">
-              <span className={styles.badgeEmoji}>🌟</span>
+              <span className={styles.badgeEmoji}>✒️</span>
               <a href="https://aistory2025.github.io/" target="_blank" rel="noopener noreferrer">
                 AI Story Workshop
               </a>
