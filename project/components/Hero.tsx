@@ -10,6 +10,7 @@ interface HeroProps {
 
 export function Hero({ onRequestDataset }: HeroProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [showComingSoon, setShowComingSoon] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -46,7 +47,14 @@ export function Hero({ onRequestDataset }: HeroProps) {
 
         <div className={styles.conferenceInfo}>
           <p className={styles.conferenceTitle}>
-            International Conference on Computer Vision
+            <a href="https://iccv.thecvf.com/Conferences/2025" target="_blank" rel="noopener noreferrer">
+              International Conference on Computer Vision
+            </a>
+          </p>
+          <p className={styles.conferenceSubTitle}>
+            <a href="https://aistory2025.github.io/" target="_blank" rel="noopener noreferrer">
+                AI Story Workshop
+            </a>
           </p>
           <p className={styles.conferenceDetails}>
             Honolulu, Hawaii • October 2025
@@ -58,19 +66,11 @@ export function Hero({ onRequestDataset }: HeroProps) {
           <div className={styles.badgesList}>
             <div className="manga-speech-bubble">
               <span className={styles.badgeEmoji}>🌟</span>
-              <a href="https://iccv.thecvf.com/Conferences/2025" target="_blank" rel="noopener noreferrer">
                 Oral Presentation
-              </a>
             </div>
             <div className="manga-speech-bubble">
               <span className={styles.badgeEmoji}>🏆</span>
                 Best Paper Recommendation
-            </div>
-            <div className="manga-speech-bubble">
-              <span className={styles.badgeEmoji}>✒️</span>
-              <a href="https://aistory2025.github.io/" target="_blank" rel="noopener noreferrer">
-                AI Story Workshop
-              </a>
             </div>
           </div>
         </div>
@@ -112,13 +112,31 @@ export function Hero({ onRequestDataset }: HeroProps) {
 
         {/* Buttons */}
         <div className={styles.buttonsContainer}>
-          <a
-            href="#abstract"
-            className="manga-panel"
-            style={{ padding: '0.75rem 1.5rem', fontSize: '0.875rem', fontWeight: '700', color: 'var(--manga-black)', textDecoration: 'none', transition: 'transform 300ms' }}
-          >
-            📄 Read Paper
-          </a>
+          <div className={styles.readPaperWrapper}>
+            <div
+              className="manga-panel"
+              style={{ 
+                padding: '0.75rem 1.5rem', 
+                fontSize: '0.875rem', 
+                fontWeight: '700', 
+                color: 'var(--manga-black)', 
+                textDecoration: 'none', 
+                transition: 'transform 300ms',
+                cursor: 'not-allowed',
+                position: 'relative'
+              }}
+              onMouseEnter={() => setShowComingSoon(true)}
+              onMouseLeave={() => setShowComingSoon(false)}
+              onClick={(e) => e.preventDefault()}
+            >
+              📄 Read Paper
+            </div>
+            {showComingSoon && (
+              <div className={styles.comingSoonPopup}>
+                Coming Soon...
+              </div>
+            )}
+          </div>
           <button
             onClick={onRequestDataset}
             className="manga-panel"

@@ -1,6 +1,11 @@
 import styles from "./styles/Abstract.module.css";
 import { ImagePopup } from "./ImagePopup";
+import { useState } from "react";
+import Image from "next/image";
+
 export function Abstract() {
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+
   return (
     <section id="abstract" className={styles.abstract}>
       <div className={styles.container}>
@@ -45,56 +50,102 @@ export function Abstract() {
             Experiments and Curation
           </h4>
           <div className={styles.experimentsGrid}>
-            <ImagePopup
-              trigger={
-                <div className="manga-panel manga-universal-card">
-                  <div className="manga-card-icon">📊</div>
-                  <h4 className="manga-card-title">
-                    Experiment 1 Results
-                  </h4>
-                  <p className="manga-card-description">
-                    Story & Summary Generation.
-                  </p>
+            <div className={styles.cardWrapper}>
+              <div 
+                className="manga-panel manga-universal-card"
+                onMouseEnter={() => setHoveredCard('experiment1')}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div className="manga-card-icon">📊</div>
+                <h4 className="manga-card-title">
+                  Experiment 1 Results
+                </h4>
+                <p className="manga-card-description">
+                  Story & Summary Generation.
+                </p>
+              </div>
+              {hoveredCard === 'experiment1' && (
+                <div className={styles.hoverPopup}>
+                  <div className={styles.popupContent}>
+                    <Image
+                      src="/expt1.png"
+                      alt="Experiment 1: Generative Analysis"
+                      width={400}
+                      height={300}
+                      className={styles.popupImage}
+                    />
+                    <div className={styles.popupText}>
+                      <h4>Experiment 1: Generative Analysis</h4>
+                    </div>
+                  </div>
                 </div>
-              }
-              imageSrc="/expt1.png"
-              title="Experiment 1: VLM Performance Analysis"
-              description="Comprehensive evaluation of various Vision Language Models on manga narrative understanding tasks. The results show significant performance gaps in temporal reasoning and cross-panel consistency across all tested models."
-            />
+              )}
+            </div>
 
-            <ImagePopup
-              trigger={
-                <div className="manga-panel manga-universal-card">
-                  <div className="manga-card-icon">📈</div>
-                  <h4 className="manga-card-title">
-                    Experiment 2 Results
-                  </h4>
-                  <p className="manga-card-description">
-                    Next-Page & Intermediate-Page Prediction.
-                  </p>
+            <div className={styles.cardWrapper}>
+              <div 
+                className="manga-panel manga-universal-card"
+                onMouseEnter={() => setHoveredCard('experiment2')}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div className="manga-card-icon">📈</div>
+                <h4 className="manga-card-title">
+                  Experiment 2 Results
+                </h4>
+                <p className="manga-card-description">
+                  Next-Page & Intermediate-Page Prediction.
+                </p>
+              </div>
+              {hoveredCard === 'experiment2' && (
+                <div className={styles.hoverPopup}>
+                  <div className={styles.popupContent}>
+                    <Image
+                      src="/expt2.png"
+                      alt="Experiment 2: Predictive Analysis"
+                      width={400}
+                      height={300}
+                      className={styles.popupImage}
+                    />
+                    <div className={styles.popupText}>
+                      <h4>Experiment 2: Predictive Analysis</h4>
+                    </div>
+                  </div>
                 </div>
-              }
-              imageSrc="/expt2.png"
-              title="Experiment 2: Evaluation Methodology Comparison"
-              description="Detailed comparison of different evaluation approaches for measuring VLM understanding of sequential visual narratives. This analysis reveals the importance of multi-modal assessment frameworks."
-            />
+              )}
+            </div>
 
-            <ImagePopup
-              trigger={
-                <div className="manga-panel manga-universal-card">
-                  <div className="manga-card-icon">⚙️</div>
-                  <h4 className="manga-card-title">
-                    Dataset Procurement
-                  </h4>
-                  <p className="manga-card-description">
-                    Data Preparation and Annotation Pipeline.
-                  </p>
+            <div className={styles.cardWrapper}>
+              <div 
+                className="manga-panel manga-universal-card"
+                onMouseEnter={() => setHoveredCard('dataset')}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div className="manga-card-icon">⚙️</div>
+                <h4 className="manga-card-title">
+                  Dataset Procurement
+                </h4>
+                <p className="manga-card-description">
+                  Data Preparation and Annotation Pipeline.
+                </p>
+              </div>
+              {hoveredCard === 'dataset' && (
+                <div className={styles.hoverPopup}>
+                  <div className={styles.popupContent}>
+                    <Image
+                      src="/proc.png"
+                      alt="Dataset Preparation Process"
+                      width={400}
+                      height={300}
+                      className={styles.popupImage}
+                    />
+                    <div className={styles.popupText}>
+                      <h4>Dataset Preparation Process</h4>
+                      <p>Approach to creating the Re:Zero manga dataset, including panel extraction and annotation protocols.</p>
+                    </div>
+                  </div>
                 </div>
-              }
-              imageSrc="/proc.png"
-              title="Dataset Preparation Process"
-              description="Our systematic approach to creating the Re:Zero manga dataset, including panel extraction, annotation protocols, and quality assurance measures. This process ensures high-quality multimodal data for reliable evaluation."
-            />
+              )}
+            </div>
           </div>
         </div>
       </div>
