@@ -97,7 +97,7 @@ Our evaluation reveals significant performance gaps in VLMs for:
 @inproceedings{baranwal2025reverse,
   title={Re:Verse - Can Your VLM Read a Manga?},
   author={Baranwal, Aaditya and Kataria, Madhav and Agrawal, Naitik and Rawat, Yogesh Singh and Vyas, Shruti},
-  booktitle={International Conference on Computer Vision},
+  booktitle={International Conference on Computer Vision - Workshops (ICCV-W)},
   year={2025}
 }
 ```
