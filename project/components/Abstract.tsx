@@ -93,7 +93,7 @@ export function Abstract() {
                   Experiment 2 Results
                 </h4>
                 <p className="manga-card-description">
-                  Next-Page & Intermediate-Page Prediction.
+                  Text-Box Detection, Classification and Association.
                 </p>
               </div>
               {hoveredCard === 'experiment2' && (
@@ -101,13 +101,46 @@ export function Abstract() {
                   <div className={styles.popupContent}>
                     <Image
                       src="/expt2.png"
-                      alt="Experiment 2: Predictive Analysis"
+                      alt="Experiment 2: Grounding Analysis"
                       width={400}
                       height={300}
                       className={styles.popupImage}
                     />
                     <div className={styles.popupText}>
-                      <h4>Experiment 2: Predictive Analysis</h4>
+                      <h4>Experiment 2: Grounding Analysis</h4>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+
+            <div className={styles.cardWrapper}>
+              <div 
+                className="manga-panel manga-universal-card"
+                onMouseEnter={() => setHoveredCard('experiment3')}
+                onMouseLeave={() => setHoveredCard(null)}
+              >
+                <div className="manga-card-icon">📈</div>
+                <h4 className="manga-card-title">
+                  Experiment 3 Results
+                </h4>
+                <p className="manga-card-description">
+                  Page Predictions and Visual Question Answering.
+                </p>
+              </div>
+              {hoveredCard === 'experiment3' && (
+                <div className={styles.hoverPopup}>
+                  <div className={styles.popupContent}>
+                    <Image
+                      src="/expt3.png"
+                      alt="Experiment 3: Predictive Analysis"
+                      width={400}
+                      height={300}
+                      className={styles.popupImage}
+                    />
+                    <div className={styles.popupText}>
+                      <h4>Experiment 3: Predictive Analysis</h4>
                     </div>
                   </div>
                 </div>
