@@ -121,7 +121,7 @@ export function Abstract() {
                 onMouseEnter={() => setHoveredCard('experiment3')}
                 onMouseLeave={() => setHoveredCard(null)}
               >
-                <div className="manga-card-icon">📈</div>
+                <div className="manga-card-icon">🗠</div>
                 <h4 className="manga-card-title">
                   Experiment 3 Results
                 </h4>
