@@ -5,12 +5,13 @@ import { useState } from "react";
 export function Citation() {
   const [copied, setCopied] = useState(false);
 
-  const bibtex = `@inproceedings{baranwal2025reverse,
-    title={Re:Verse - Can Your VLM Read a Manga?},
-    author={Baranwal, Aaditya and Kataria, Madhav and Agrawal, Naitik and Rawat, Yogesh Singh and Vyas, Shruti},
-    booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision - Workshops (ICCV-W)},
-    year={2025},
-    organization={IEEE}
+  const bibtex = `@inproceedings{
+baranwal2025reverse,
+title={Re:Verse - Can your {VLM} read a Manga?},
+author={Aaditya Baranwal and Madhav Kataria and Naitik Agrawal and Shruti Vyas and Yogesh S Rawat},
+booktitle={1st Workshop on Generative AI for Storytelling (AISTORY)},
+year={2025},
+url={https://openreview.net/forum?id=eInygm3qd6}
 }`;
 
   const copyToClipboard = async () => {
