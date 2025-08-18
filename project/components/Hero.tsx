@@ -10,7 +10,7 @@ interface HeroProps {
 
 export function Hero({ onRequestDataset }: HeroProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const [showComingSoon, setShowComingSoon] = useState(false);
+  const [showArxivPopup, setShowArxivPopup] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -113,7 +113,10 @@ export function Hero({ onRequestDataset }: HeroProps) {
         {/* Buttons */}
         <div className={styles.buttonsContainer}>
           <div className={styles.readPaperWrapper}>
-            <div
+            <a
+              href="https://arxiv.org/abs/2508.08508"
+              target="_blank"
+              rel="noopener noreferrer"
               className="manga-panel"
               style={{ 
                 padding: '0.75rem 1.5rem', 
@@ -122,18 +125,16 @@ export function Hero({ onRequestDataset }: HeroProps) {
                 color: 'var(--manga-black)', 
                 textDecoration: 'none', 
                 transition: 'transform 300ms',
-                cursor: 'not-allowed',
-                position: 'relative'
+                display: 'inline-block'
               }}
-              onMouseEnter={() => setShowComingSoon(true)}
-              onMouseLeave={() => setShowComingSoon(false)}
-              onClick={(e) => e.preventDefault()}
+              onMouseEnter={() => setShowArxivPopup(true)}
+              onMouseLeave={() => setShowArxivPopup(false)}
             >
               📄 Read Paper
-            </div>
-            {showComingSoon && (
+            </a>
+            {showArxivPopup && (
               <div className={styles.comingSoonPopup}>
-                Coming Soon...
+                click to visit arxiv...
               </div>
             )}
           </div>
