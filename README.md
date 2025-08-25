@@ -66,7 +66,7 @@ processed_data = processor.run(raw_manga_data)
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/ReVerse.git
+git clone https://github.com/eternal-f1ame/ReVerse.git
 cd ReVerse
 
 # Install dependencies
