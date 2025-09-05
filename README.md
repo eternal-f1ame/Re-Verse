@@ -1,4 +1,4 @@
-# Re:Verse - Can Your VLM Read a Manga?
+# Re:Verse - Can Your VLM Read a Manga? (https://huggingface.co/datasets/sochastic/Re-Verse)[Hugging Face]
 
 📄 **1st AI Story Workshop ICCV (Oral)**
 
