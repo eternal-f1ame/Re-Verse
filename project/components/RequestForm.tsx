@@ -86,7 +86,7 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
     setError("");
 
     try {
-      const prompt = `Based on the following user research idea, please expand it into a formal, well-structured research abstract of about 150-200 words. The abstract should be suitable for a dataset access request. It must explicitly mention the intent to use the "Re:Verse Dataset" for the analysis. User's idea: "${formData.researchPurpose.trim()}"`;
+      const prompt = `Based on the following collaboration idea, please expand it into a formal, well-structured research proposal of about 150-200 words. The proposal should be suitable for joining the Re:Verse research project as a collaborator. It should explicitly mention how this contribution would advance the Re:Verse project goals. User's idea: "${formData.researchPurpose.trim()}"`;
       
       const chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
       const payload = { contents: chatHistory };
@@ -130,10 +130,10 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
     if (!formData.fullName.trim()) errors.push('Full Name is required.');
     if (!formData.email.trim()) errors.push('Email Address is required.');
     if (!formData.organization.trim()) errors.push('Organisation is required.');
-    if (!formData.researchPurpose.trim()) errors.push('Research purpose is required.');
+    if (!formData.researchPurpose.trim()) errors.push('Collaboration contribution is required.');
     
     const allTermsAccepted = Object.values(termsAccepted).every(term => term === true);
-    if (!allTermsAccepted) errors.push('You must agree to all terms and conditions.');
+    if (!allTermsAccepted) errors.push('You must agree to all collaboration terms.');
 
     if (errors.length > 0) {
       setError(errors.join(' '));
@@ -160,7 +160,7 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
       }
     } catch (error) {
       console.error('Submission Error:', error);
-      setError('Could not submit the form. Please try again later.');
+      setError('Could not submit the collaboration request. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -177,8 +177,8 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
             ✕
           </button>
           <div className={styles.successMessage}>
-            <h3 className={styles.successTitle}>Thank You!</h3>
-            <p>Your request for the Re:Verse Dataset has been submitted successfully. We will review your application and contact you via email within 5-7 business days.</p>
+            <h3 className={styles.successTitle}>Welcome to the Team!</h3>
+            <p>Your collaboration request has been submitted successfully. We're excited about the possibility of working together! We will review your proposal and reach out via email within 5-7 business days to discuss next steps.</p>
           </div>
         </div>
       </div>
@@ -201,14 +201,14 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
               className={styles.headerImage}
             />
             <div>
-              <h1 className={styles.headerTitle}>Re:Verse Dataset</h1>
-              <p className={styles.headerSubtitle}>Access Request Form</p>
+              <h1 className={styles.headerTitle}>Re:Verse Collaboration</h1>
+              <p className={styles.headerSubtitle}>Join Our Research Team</p>
             </div>
           </div>
 
           <div className={styles.formBody}>
             <p className={styles.description}>
-              Please fill out this form to request access to the Re:Verse Dataset. Access is granted for non-commercial research purposes only. Ensure all information is accurate.
+              We're excited to collaborate with researchers who share our passion for advancing Vision Language Models and sequential visual storytelling. Please fill out this form to join our research efforts and contribute to the Re:Verse project.
             </p>
 
             <form onSubmit={handleSubmit} className={styles.form}>
@@ -219,7 +219,7 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
                     <path d="M50 0L61.226 34.5492L97.5528 38.7742L71.2764 65.4508L77.6338 100L50 82L22.3662 100L28.7236 65.4508L2.44717 38.7742L38.774 34.5492L50 0Z" fill="black"/>
                   </svg>
                 </div>
-                <h2 className={styles.sectionTitle}>Requester Information</h2>
+                <h2 className={styles.sectionTitle}>Collaborator Information</h2>
                 
                 <div className={styles.inputGroup}>
                   <label htmlFor="fullName" className={styles.inputLabel}>
@@ -272,7 +272,7 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
                 <div className={styles.inputGroup}>
                   <div className={styles.textareaHeader}>
                     <label htmlFor="researchPurpose" className={styles.inputLabel}>
-                      Briefly describe your research purpose <span className={styles.required}>*</span>
+                      How would you like to contribute to the Re:Verse project? <span className={styles.required}>*</span>
                     </label>
                   </div>
                   <textarea
@@ -283,7 +283,7 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
                     rows={5}
                     className={styles.formInput}
                     required
-                    placeholder="e.g., Analyzing chakra consumption in perfecting Susanoo techniques."
+                    placeholder="e.g., I'd like to contribute by developing new forms of chakra harnessing for Chidori."
                   />
                   {geminiLoading && (
                     <div className={styles.geminiLoader}>
@@ -301,9 +301,9 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
                     <path d="M2 49.8615L98 2M2 49.8615L50.2769 98L2 49.8615Z" stroke="black" strokeWidth="4"/>
                   </svg>
                 </div>
-                <h2 className={styles.sectionTitle}>Terms and Conditions</h2>
+                <h2 className={styles.sectionTitle}>Collaboration Agreement</h2>
                 <p className={styles.termsDescription}>
-                  Please read and agree to the following terms to proceed.
+                  Please read and agree to the following collaboration terms.
                 </p>
 
                 <div className={styles.checkboxGroup}>
@@ -317,7 +317,7 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
                     required
                   />
                   <label htmlFor="terms-license" className={styles.checkboxLabel}>
-                    I agree to the licensing terms of the Re:Zero - Starting Life in Another World manga and associated media.
+                    I understand and agree to respect the licensing terms of the Re:Zero - Starting Life in Another World manga and associated media in our collaborative work.
                   </label>
                 </div>
 
@@ -332,11 +332,11 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
                     required
                   />
                   <label htmlFor="terms-accredit" className={styles.checkboxLabel}>
-                    I agree to credit{' '}
+                    I agree to properly credit{' '}
                     <a href="https://yenpress.com/" target="_blank" rel="noopener noreferrer" className={styles.link}>
                       Yen Press
                     </a>
-                    , the official English publisher of the Re:Zero franchise, in any work (inclusive of but not limited to publications or presentations) resulting from this research or any of its derivatives.
+                    , the official English publisher of the Re:Zero franchise, and all Re:Verse project contributors in any collaborative publications or presentations.
                   </label>
                 </div>
 
@@ -351,7 +351,7 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
                     required
                   />
                   <label htmlFor="terms-usage" className={styles.checkboxLabel}>
-                    I agree to use the Re:Verse Dataset for <strong>non-commercial and research purposes only</strong>.
+                    I commit to using any shared Re:Verse resources for <strong>non-commercial and collaborative research purposes only</strong>.
                   </label>
                 </div>
 
@@ -366,7 +366,7 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
                     required
                   />
                   <label htmlFor="terms-redistribute" className={styles.checkboxLabel}>
-                    I agree <strong>not to redistribute, share, or make the Re:Verse Dataset publicly available</strong> in any form.
+                    I agree to follow the project's data sharing guidelines and <strong>not to redistribute sensitive research materials</strong> without explicit permission from the Re:Verse team.
                   </label>
                 </div>
               </div>
@@ -382,13 +382,13 @@ export function RequestForm({ isOpen, onClose }: RequestFormProps) {
                 disabled={isSubmitting}
                 className={styles.submitBtn}
               >
-                {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                {isSubmitting ? 'Submitting...' : 'Join Collaboration'}
               </button>
 
               {isSubmitting && (
                 <div className={styles.submitLoader}>
                   <div className={styles.loader}></div>
-                  <p className={styles.loaderText}>Submitting to Google Sheet...</p>
+                  <p className={styles.loaderText}>Submitting collaboration request...</p>
                 </div>
               )}
             </form>

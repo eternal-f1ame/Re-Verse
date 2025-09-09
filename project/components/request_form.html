@@ -223,7 +223,7 @@
                     <!-- Section for Requester Details -->
                     <div class="form-section">
                          <svg class="manga-deco" style="top: -25px; right: -25px; transform: rotate(15deg);" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 0L61.226 34.5492L97.5528 38.7742L71.2764 65.4508L77.6338 100L50 82L22.3662 100L28.7236 65.4508L2.44717 38.7742L38.774 34.5492L50 0Z" fill="black"/></svg>
-                        <h2 class="form-section-title">Requester Information</h2>
+                        <h2 class="form-section-title">Collaborator Information</h2>
                         <div class="input-group">
                             <label for="fullName" class="input-label">Full Name <span class="text-red-500">*</span></label>
                             <input type="text" id="fullName" name="fullName" class="form-input" required placeholder="e.g., John Doe">
@@ -240,7 +240,7 @@
                             <div class="flex justify-between items-center mb-2">
                                 <label for="researchPurpose" class="input-label mb-0">How would you like to contribute to the Re:Verse project? <span class="text-red-500">*</span></label>
                             </div>
-                            <textarea id="researchPurpose" name="researchPurpose" rows="5" class="form-input" required placeholder="e.g., I'd like to contribute by developing new evaluation metrics for manga comprehension, or extending the dataset with additional visual storytelling formats."></textarea>
+                            <textarea id="researchPurpose" name="researchPurpose" rows="5" class="form-input" required placeholder="e.g., I'd like to contribute by developing new forms of chakra harnessing for Chidori.></textarea>
                             <div id="gemini-loader" class="text-right mt-2 hidden">
                                 <span class="text-sm text-gray-500">Generating...</span>
                                 <div class="loader"></div>
@@ -318,7 +318,7 @@
                 formError.classList.add('hidden');
 
                 try {
-                    const prompt = `Based on the following collaboration idea, please expand it into a formal, well-structured research proposal of about 150-200 words. The proposal should be suitable for joining the Re:Verse research project as a collaborator. It should explicitly mention how this contribution would advance the Re:Verse project goals. User's idea: "${userPrompt}"`;.
+                    const prompt = `Based on the following collaboration idea, please expand it into a formal, well-structured research proposal of about 150-200 words. The proposal should be suitable for joining the Re:Verse research project as a collaborator. It should explicitly mention how this contribution would advance the Re:Verse project goals. User's idea: "${userPrompt}"`;
                     
                     let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
                     const payload = { contents: chatHistory };
