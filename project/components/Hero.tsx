@@ -138,12 +138,29 @@ export function Hero({ onRequestDataset }: HeroProps) {
               </div>
             )}
           </div>
+          <a
+            href="https://huggingface.co/datasets/sochastic/Re-Verse"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="manga-panel"
+            style={{ 
+              padding: '0.75rem 1.5rem', 
+              fontSize: '0.875rem', 
+              fontWeight: '700', 
+              color: 'var(--manga-black)', 
+              textDecoration: 'none', 
+              transition: 'transform 300ms',
+              display: 'inline-block'
+            }}
+          >
+            🤗 Get Dataset
+          </a>
           <button
             onClick={onRequestDataset}
             className="manga-panel"
             style={{ padding: '0.75rem 1.5rem', fontSize: '0.875rem', fontWeight: '700', color: 'var(--manga-black)', textDecoration: 'none', transition: 'transform 300ms' }}
           >
-            🌠 Request Dataset
+            🌠 Collaborate with us
           </button>
         </div>
       </div>

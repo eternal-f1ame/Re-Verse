@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Re:Verse Dataset Access Request</title>
+    <title>Re:Verse Collaboration Request</title>
     <link rel="icon" type="image/png" href="http://googleusercontent.com/file_content/9">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -210,16 +210,16 @@
         <div class="form-header">
             <img src="http://googleusercontent.com/file_content/9" alt="Re:Verse Mascot">
             <div>
-                <h1 class="text-3xl font-bold">Re:Verse Dataset</h1>
-                <p class="mt-1 opacity-90">Access Request Form</p>
+                <h1 class="text-3xl font-bold">Re:Verse Collaboration</h1>
+                <p class="mt-1 opacity-90">Join Our Research Team</p>
             </div>
         </div>
 
         <div class="form-body">
             <div id="form-content">
-                <p class="mb-6 text-gray-600">Please fill out this form to request access to the Re:Verse Dataset. Access is granted for non-commercial research purposes only. Ensure all information is accurate.</p>
+                <p class="mb-6 text-gray-600">We're excited to collaborate with researchers who share our passion for advancing Vision Language Models and sequential visual storytelling. Please fill out this form to join our research efforts and contribute to the Re:Verse project.</p>
 
-                <form id="dataset-request-form" novalidate>
+                <form id="collaboration-request-form" novalidate>
                     <!-- Section for Requester Details -->
                     <div class="form-section">
                          <svg class="manga-deco" style="top: -25px; right: -25px; transform: rotate(15deg);" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M50 0L61.226 34.5492L97.5528 38.7742L71.2764 65.4508L77.6338 100L50 82L22.3662 100L28.7236 65.4508L2.44717 38.7742L38.774 34.5492L50 0Z" fill="black"/></svg>
@@ -238,9 +238,9 @@
                         </div>
                          <div class="input-group mb-0">
                             <div class="flex justify-between items-center mb-2">
-                                <label for="researchPurpose" class="input-label mb-0">Briefly describe your research purpose <span class="text-red-500">*</span></label>
+                                <label for="researchPurpose" class="input-label mb-0">How would you like to contribute to the Re:Verse project? <span class="text-red-500">*</span></label>
                             </div>
-                            <textarea id="researchPurpose" name="researchPurpose" rows="5" class="form-input" required placeholder="e.g., Analyzing character development arcs in modern isekai literature."></textarea>
+                            <textarea id="researchPurpose" name="researchPurpose" rows="5" class="form-input" required placeholder="e.g., I'd like to contribute by developing new evaluation metrics for manga comprehension, or extending the dataset with additional visual storytelling formats."></textarea>
                             <div id="gemini-loader" class="text-right mt-2 hidden">
                                 <span class="text-sm text-gray-500">Generating...</span>
                                 <div class="loader"></div>
@@ -251,46 +251,46 @@
                     <!-- Section for Terms and Agreements -->
                     <div class="form-section">
                         <svg class="manga-deco" style="bottom: -30px; left: -35px; transform: rotate(-25deg);" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 49.8615L98 2M2 49.8615L50.2769 98L2 49.8615Z" stroke="black" stroke-width="4"/></svg>
-                        <h2 class="form-section-title">Terms and Conditions</h2>
-                        <p class="text-sm text-gray-500 mb-4">Please read and agree to the following terms to proceed.</p>
+                        <h2 class="form-section-title">Collaboration Agreement</h2>
+                        <p class="text-sm text-gray-500 mb-4">Please read and agree to the following collaboration terms.</p>
                         
                         <div class="checkbox-group">
                             <input type="checkbox" id="terms-license" name="terms" class="form-checkbox" required>
-                            <label for="terms-license" class="checkbox-label">I agree to the licensing terms of the Re:Zero - Starting Life in Another World manga and associated media.</label>
+                            <label for="terms-license" class="checkbox-label">I understand and agree to respect the licensing terms of the Re:Zero - Starting Life in Another World manga and associated media in our collaborative work.</label>
                         </div>
                         <div class="checkbox-group">
                             <input type="checkbox" id="terms-accredit" name="terms" class="form-checkbox" required>
-                            <label for="terms-accredit" class="checkbox-label">I agree to credit <a href="https://yenpress.com/" target="_blank" class="text-indigo-600 hover:underline font-medium">Yen Press</a>, the official English publisher of the Re:Zero franchise, in any publications or presentations resulting from this research.</label>
+                            <label for="terms-accredit" class="checkbox-label">I agree to properly credit <a href="https://yenpress.com/" target="_blank" class="text-indigo-600 hover:underline font-medium">Yen Press</a>, the official English publisher of the Re:Zero franchise, and all Re:Verse project contributors in any collaborative publications or presentations.</label>
                         </div>
                         <div class="checkbox-group">
                             <input type="checkbox" id="terms-usage" name="terms" class="form-checkbox" required>
-                            <label for="terms-usage" class="checkbox-label">I agree to use the Re:Verse Dataset for <strong>non-commercial and research purposes only</strong>.</label>
+                            <label for="terms-usage" class="checkbox-label">I commit to using any shared Re:Verse resources for <strong>non-commercial and collaborative research purposes only</strong>.</label>
                         </div>
                         <div class="checkbox-group">
                             <input type="checkbox" id="terms-redistribute" name="terms" class="form-checkbox" required>
-                            <label for="terms-redistribute" class="checkbox-label">I agree <strong>not to redistribute, share, or make the Re:Verse Dataset publicly available</strong> in any form.</label>
+                            <label for="terms-redistribute" class="checkbox-label">I agree to follow the project's data sharing guidelines and <strong>not to redistribute sensitive research materials</strong> without explicit permission from the Re:Verse team.</label>
                         </div>
                     </div>
                     
                     <div id="form-error" class="error-message mb-4 hidden"></div>
 
-                    <button type="submit" id="submit-button" class="submit-btn">Submit Request</button>
+                    <button type="submit" id="submit-button" class="submit-btn">Join Collaboration</button>
                     <div id="submit-loader" class="text-center mt-4 hidden">
                          <div class="loader" style="margin:auto;"></div>
-                         <p class="text-sm text-gray-600">Submitting to Google Sheet...</p>
+                         <p class="text-sm text-gray-600">Submitting collaboration request...</p>
                     </div>
                 </form>
             </div>
             <div id="success-message" class="success-message hidden">
-                <h3 class="text-2xl font-bold mb-2" style="font-family: 'Yomogi', cursive;">Thank You!</h3>
-                <p>Your request for the Re:Verse Dataset has been submitted successfully. We will review your application and contact you via email within 5-7 business days.</p>
+                <h3 class="text-2xl font-bold mb-2" style="font-family: 'Yomogi', cursive;">Welcome to the Team!</h3>
+                <p>Your collaboration request has been submitted successfully. We're excited about the possibility of working together! We will review your proposal and reach out via email within 5-7 business days to discuss next steps.</p>
             </div>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('dataset-request-form');
+            const form = document.getElementById('collaboration-request-form');
             const submitButton = document.getElementById('submit-button');
             const submitLoader = document.getElementById('submit-loader');
             const formError = document.getElementById('form-error');
@@ -318,7 +318,7 @@
                 formError.classList.add('hidden');
 
                 try {
-                    const prompt = `Based on the following user research idea, please expand it into a formal, well-structured research abstract of about 150-200 words. The abstract should be suitable for a dataset access request. It must explicitly mention the intent to use the "Re:Verse Dataset" for the analysis. User's idea: "${userPrompt}"`;
+                    const prompt = `Based on the following collaboration idea, please expand it into a formal, well-structured research proposal of about 150-200 words. The proposal should be suitable for joining the Re:Verse research project as a collaborator. It should explicitly mention how this contribution would advance the Re:Verse project goals. User's idea: "${userPrompt}"`;.
                     
                     let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
                     const payload = { contents: chatHistory };
@@ -374,8 +374,8 @@
                 if (!fullName) errors.push('Full Name is required.');
                 if (!email) errors.push('Email Address is required.');
                 if (!organization) errors.push('Organisation is required.');
-                if (!researchPurpose) errors.push('Research purpose is required.');
-                if (checkboxes.length < 4) errors.push('You must agree to all terms and conditions.');
+                if (!researchPurpose) errors.push('Collaboration contribution is required.');
+                if (checkboxes.length < 4) errors.push('You must agree to all collaboration terms.');
                 if (googleScriptUrl === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
                     errors.push('The form is not configured. Please contact the administrator.');
                 }
@@ -415,7 +415,7 @@
                 })
                 .catch(error => {
                     console.error('Submission Error:', error);
-                    formError.textContent = 'Could not submit the form. Please try again later.';
+                    formError.textContent = 'Could not submit the collaboration request. Please try again later.';
                     formError.classList.remove('hidden');
                     submitButton.classList.remove('hidden');
                     submitLoader.classList.add('hidden');
