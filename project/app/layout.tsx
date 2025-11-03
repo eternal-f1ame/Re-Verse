@@ -24,7 +24,7 @@ const yomogi = Yomogi({
 
 export const metadata: Metadata = {
   title: "Re:Verse - Can Your VLM Read a Manga?",
-  description: "Evaluating Vision Language Models' Understanding of Sequential Visual Storytelling in Manga. ICCV 2025 Oral Presentation and Best Paper Award Nominee.",
+  description: "Evaluating Vision Language Models' Understanding of Sequential Visual Storytelling in Manga. ICCV 2025 Oral Presentation and Best Paper Award.",
   icons: {
     icon: [
       { url: '/favicon.png' },

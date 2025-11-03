@@ -125,6 +125,8 @@
   max-height: 85vh;
   animation: popupFadeIn 0.3s ease-out;
   pointer-events: none;
+  /* allow scrolling when content exceeds max-height */
+  overflow: auto;
 }
 
 .popupContent {
@@ -133,26 +135,37 @@
   gap: 2rem;
 }
 
+.popupContent {
+  /* keep popup content centered and constrain inner height so children (image/text) don't overflow the viewport */
+  align-items: center;
+  max-height: calc(85vh - 6rem);
+}
+
 .popupImage {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
+  /* increased max-height to make images bigger */
+  max-height: 70vh;
+  object-fit: contain;
   border-radius: 12px;
   border: 3px solid var(--manga-sepia);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: block;
 }
 
 .popupText h4 {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--manga-black);
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.75rem 0;
   text-align: center;
 }
 
 .popupText p {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: var(--manga-brown);
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
   text-align: center;
 }
@@ -192,11 +205,11 @@
   }
   
   .popupText h4 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
   .popupText p {
-    font-size: 1.375rem;
+    font-size: 1.125rem;
   }
 }
 

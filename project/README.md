@@ -4,8 +4,7 @@ A stunning, manga-inspired project page for the ICCV 2025 paper on evaluating Vi
 
 ## 🏆 Award Recognition
 
-- **ICCV 2025 Oral Presentation**
-- **Best Paper Award Nominee**
+- **Best Paper**
 
 ## 🎨 Design Features
 

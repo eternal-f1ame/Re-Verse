@@ -70,7 +70,7 @@ export function Hero({ onRequestDataset }: HeroProps) {
             </div>
             <div className="manga-speech-bubble">
               <span className={styles.badgeEmoji}>🏆</span>
-                Best Paper Recommendation
+                Best Paper
             </div>
           </div>
         </div>
