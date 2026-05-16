@@ -60,13 +60,13 @@ npm run build
 ## 📖 Citation
 
 ```bibtex
-@inproceedings{
-baranwal2025reverse,
-title={Re:Verse - Can your {VLM} read a Manga?},
-author={Aaditya Baranwal and Madhav Kataria and Naitik Agrawal and Shruti Vyas and Yogesh S Rawat},
-booktitle={1st Workshop on Generative AI for Storytelling (AISTORY)},
-year={2025},
-url={https://openreview.net/forum?id=eInygm3qd6}
+@InProceedings{Baranwal_2025_ICCV,
+    author    = {Baranwal, Aaditya and Kataria, Madhav and Agrawal, Naitik and Rawat, Yogesh S and Vyas, Shruti},
+    title     = {Re:Verse - Can your VLM read a Manga?},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+    month     = {October},
+    year      = {2025},
+    pages     = {3820-3830}
 }
 ```
 

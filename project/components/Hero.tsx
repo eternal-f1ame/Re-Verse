@@ -4,11 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./styles/Hero.module.css";
 
-interface HeroProps {
-  onRequestDataset: () => void;
-}
-
-export function Hero({ onRequestDataset }: HeroProps) {
+export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [showArxivPopup, setShowArxivPopup] = useState(false);
 
@@ -143,25 +139,18 @@ export function Hero({ onRequestDataset }: HeroProps) {
             target="_blank"
             rel="noopener noreferrer"
             className="manga-panel"
-            style={{ 
-              padding: '0.75rem 1.5rem', 
-              fontSize: '0.875rem', 
-              fontWeight: '700', 
-              color: 'var(--manga-black)', 
-              textDecoration: 'none', 
+            style={{
+              padding: '0.75rem 1.5rem',
+              fontSize: '0.875rem',
+              fontWeight: '700',
+              color: 'var(--manga-black)',
+              textDecoration: 'none',
               transition: 'transform 300ms',
               display: 'inline-block'
             }}
           >
             🤗 Get Dataset
           </a>
-          <button
-            onClick={onRequestDataset}
-            className="manga-panel"
-            style={{ padding: '0.75rem 1.5rem', fontSize: '0.875rem', fontWeight: '700', color: 'var(--manga-black)', textDecoration: 'none', transition: 'transform 300ms' }}
-          >
-            🌠 Collaborate with us
-          </button>
         </div>
       </div>
     </section>

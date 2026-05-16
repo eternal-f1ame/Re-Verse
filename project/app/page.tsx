@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Hero } from "../components/Hero";
 import { Abstract } from "../components/Abstract";
 import { Highlights } from "../components/Highlights";
@@ -8,19 +7,9 @@ import { Results } from "../components/Results";
 import { Method } from "../components/Method";
 import { Team } from "../components/Team";
 import { Citation } from "../components/Citation";
-import { RequestForm } from "../components/RequestForm";
 import Image from "next/image";
 
 export default function Home() {
-  const [isRequestFormOpen, setIsRequestFormOpen] = useState(false);
-
-  const handleRequestDataset = () => {
-    setIsRequestFormOpen(true);
-  };
-
-  const handleCloseRequestForm = () => {
-    setIsRequestFormOpen(false);
-  };
   return (
     <div className="min-h-screen relative overflow-x-hidden" style={{ background: 'var(--manga-cream)' }}>
       {/* Global Fixed Background Elements */}
@@ -81,7 +70,7 @@ export default function Home() {
 
       {/* Content with relative positioning */}
       <div className="relative z-10">
-        <Hero onRequestDataset={handleRequestDataset} />
+        <Hero />
         <Abstract />
         <Highlights />
         <Method />
@@ -89,12 +78,6 @@ export default function Home() {
         <Citation />
         <Team />
       </div>
-      
-      {/* Request Form Modal */}
-      <RequestForm 
-        isOpen={isRequestFormOpen} 
-        onClose={handleCloseRequestForm} 
-      />
     </div>
   );
 }

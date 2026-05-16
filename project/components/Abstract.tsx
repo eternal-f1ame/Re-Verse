@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./styles/Abstract.module.css";
 import { ImagePopup } from "./ImagePopup";
 import { useState } from "react";
